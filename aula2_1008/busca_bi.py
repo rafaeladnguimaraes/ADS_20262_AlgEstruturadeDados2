@@ -15,5 +15,5 @@ def busca_bi(valor, tam):
 
     return "Não encontrado, tente outro número"
 
-busca = busca_bi(3,10)
+busca = busca_bi(4,15)
 print(busca)
