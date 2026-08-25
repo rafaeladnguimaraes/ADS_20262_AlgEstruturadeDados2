@@ -1,6 +1,3 @@
-from no import No
-from gerador import lista
-
 class Lista:
     def __init__(self):
         self.elemento = None
@@ -37,25 +34,18 @@ class Lista:
                 return f"--- Valor {valor} encontrado no elemento {str(elemento)[-5:]}"
             elemento = elemento.proximo
         return f"---- Valor {valor} não encontrado em nenhum elemento da lista! "
+  
+    def ordena_selection(self):
+        atual = self.inicio
+        while atual is not None:
+            menor = atual
+            prox = atual.proximo
+            while prox is not None:
+                if prox.valor < menor.valor:
+                    menor = prox
+                prox = prox.proximo
+            if menor != atual:
+                atual.valor, menor.valor = menor.valor, atual.valor
+            atual = atual.proximo
 
-    def ordena_bubble(self):
-        if self.elemento is None or self.elemento.proximo is None:
-            return
 
-        fim = None
-
-        while fim != self.elemento:
-            atual = self.elemento
-            trocou = False
-
-            while atual.proximo != fim:
-                proximo = atual.proximo
-                if atual.valor > proximo.valor:
-                    atual.valor, proximo.valor = proximo.valor, atual.valor
-                    trocou = True
-                atual = atual.proximo
-
-            fim = atual
-
-            if not trocou:
-                break
